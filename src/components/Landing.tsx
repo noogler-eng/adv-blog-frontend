@@ -48,7 +48,7 @@ export default function Landing(){
             : <button onClick={handelSignin} className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline">Signin</button>
         }</div>
         <div className="w-full flex flex-col justify-center items-center">
-            <div className="m-4 w-5/6 flex justify-between items-center">
+            <div className="m-4 w-5/6 flex justify-between items-center mb-8">
                 <span className="text-gray-400 outline rounded-lg px-4 text-sm">{new Date().toDateString().toLowerCase()}</span>
                 <div className="flex gap-3">
                     <Link to={'/post'} className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline">Post</Link>
