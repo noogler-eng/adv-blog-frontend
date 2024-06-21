@@ -67,7 +67,7 @@ export default function Landing(){
             }, index)=>{
                 return <Link to={`/blog/${blog.id}`} className="w-full flex flex-col justify-center items-center" key={index}><div key={index} className="w-5/6 flex justify-center flex-col p-4 rounded-xl shadow shadow-blue-500/40 md:shadow-gray-500/30 min-h-40">
                     <div className='text-2xl text-extrabold underline decoration-4 decoration-black'>{blog?.title.toUpperCase()}</div>
-                    <div className="flex justify-end items-center gap-2">
+                    <div className="flex justify-end items-center gap-2 my-2">
                         <div className="text-gray-400"><i><b>~ {blog.author.username.slice(0, 15)}...</b></i></div>
                         <div className="text-gray-400 text-sm"><i>{blog.author.email}</i></div>
                     </div>

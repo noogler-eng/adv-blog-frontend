@@ -7,6 +7,7 @@ import Post from "./components/Post";
 import Users from "./components/Users";
 import Myblogs from "./components/Myblogs";
 import Blog from "./components/Blog";
+import Update from "./components/Update";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/post" element={<Post/>}/>
           <Route path="/myblogs" element={<Myblogs/>}/>
           <Route path="/blog/:id" element={<Blog/>}/>
+          <Route path="/blog/update/:id" element={<Update/>}/>
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

@@ -5,6 +5,7 @@ import axios from "axios";
 export default function Myblogs(){
 
     const [blogs, setBlogs] = useState([]);
+    const navigate = useNavigate();
     
     useEffect(()=>{
         axios.get("http://localhost:8787/blog/v1/my-blogs", {
@@ -50,7 +51,9 @@ export default function Myblogs(){
             <div className='text-2xl text-extrabold underline decoration-4 decoration-black'>{blog?.title.toUpperCase().slice(0, 15)}</div>
             <div className="px-4 mt-4">{blog?.content.slice(0, 200)}...</div>
             <div className="flex place-self-end gap-3">
-                <button className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline">Update</button>
+                <button className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline" onClick={()=>{
+                    navigate(`/blog/update/${blog.id}`)
+                }}>Update</button>
                 <button className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline" onClick={()=>{
                     handelDelete(blog?.id);
                 }}>Delete</button>
