@@ -28,6 +28,7 @@ export default function Myblogs(){
                 Authorization: localStorage.getItem("token")
             }
             }).then((res)=>{
+                console.log(res);
                 const filteredArray = blogs.filter((blog: {id: number})=>(blog?.id != id))
                 setBlogs(filteredArray);
             }).catch((error)=>{
