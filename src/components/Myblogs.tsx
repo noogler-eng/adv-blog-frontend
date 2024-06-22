@@ -38,23 +38,24 @@ export default function Myblogs(){
         }
     }
 
-    return <div className="flex flex-col p-16 justify-center items-center">
-        <div className="m-4 w-5/6 flex justify-between items-center">
-            <span className="text-gray-400 outline rounded-lg px-4 text-sm">{new Date().toDateString().toLowerCase()}</span>
+    return <div className="flex flex-col justify-center items-center">
+        <div className="m-4 flex gap-4 place-self-end">
             <div className="flex gap-3">
-                <Link to={'/'} className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline">Home</Link>
+                <Link to={'/'} className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline">Home</Link>
             </div>
         </div>
-        
+        <div className="mb-8 text-3xl text-extrabold underline">
+            My Blogs 👀
+        </div>
         { blogs.length > 0 ? blogs.map((blog: {id: number, title: string, content: string}, index) => {
         return <div key={index} className="w-5/6 flex justify-center flex-col p-4 rounded-xl shadow shadow-blue-500/40 md:shadow-gray-500/30 min-h-40">
-            <div className='text-2xl text-extrabold underline decoration-4 decoration-black'>{blog?.title.toUpperCase().slice(0, 15)}</div>
+            <div className='text-2xl text-extrabold underline decoration-4 decoration-black'>{blog?.title.toUpperCase().slice(0, 50)}...</div>
             <div className="px-4 mt-4">{blog?.content.slice(0, 200)}...</div>
             <div className="flex place-self-end gap-3">
-                <button className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline" onClick={()=>{
+                <button className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline" onClick={()=>{
                     navigate(`/blog/update/${blog.id}`)
                 }}>Update</button>
-                <button className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline" onClick={()=>{
+                <button className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline" onClick={()=>{
                     handelDelete(blog?.id);
                 }}>Delete</button>
             </div>

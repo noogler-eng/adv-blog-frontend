@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import axios from "axios";
 import { userAtom } from "../store/atoms/userAtom";
+import Avtar from "../helper/Avtar";
 
 export default function Landing(){
 
@@ -16,7 +17,7 @@ export default function Landing(){
                 Authorization: localStorage.getItem("token")
             }
         }).then((res)=>{
-            setUser(res.data.user);
+            setUser(res.data.msg);
         }).catch((error)=>{
             console.log(error);
         })
@@ -43,17 +44,21 @@ export default function Landing(){
         <div className="text-extrabold text-2xl">
             MEDIUM<span className="text-gray-400">.com</span>
         </div>
-        {user !== null ? 
-            <button onClick={handelLogout} className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline">Logout</button> 
-            : <button onClick={handelSignin} className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline">Signin</button>
-        }</div>
+        <div className="flex gap-3 items-center">
+            { user && <Avtar/>}
+            {user !== null ? 
+                <button onClick={handelLogout} className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline">Logout</button> 
+                : <button onClick={handelSignin} className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline">Signin</button>
+            }
+        </div>
+        </div>
         <div className="w-full flex flex-col justify-center items-center">
             <div className="m-4 w-5/6 flex justify-between items-center mb-8">
                 <span className="text-gray-400 outline rounded-lg px-4 text-sm">{new Date().toDateString().toLowerCase()}</span>
                 <div className="flex gap-3">
-                    <Link to={'/post'} className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline">Post</Link>
-                    <Link to={'/users'} className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline">Users</Link>
-                    <Link to={'/myblogs'} className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline">Myblogs</Link>
+                    <Link to={'/post'} className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline">Post</Link>
+                    <Link to={'/users'} className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline">Users</Link>
+                    <Link to={'/myblogs'} className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline">Myblogs</Link>
                 </div>
             </div>
             {blogs?.map((blog: {

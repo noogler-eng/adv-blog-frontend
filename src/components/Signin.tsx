@@ -26,8 +26,8 @@ export default function Signin(){
     }
 
     return <div className="h-full w-full flex flex-col">
-        <div className="flex place-self-start p-4">
-            <Link to={'/'} className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline">Home</Link>
+        <div className="flex place-self-end p-4">
+            <Link to={'/'} className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline">Home</Link>
         </div>
         <div className="flex flex-col gap-8 justify-center items-center h-full w-full p-16">
             <div className="text-3xl text-extrabold">signin</div>
@@ -41,7 +41,7 @@ export default function Signin(){
                 <button type="submit" className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline">Sign In</button>
             </form>
             <div>
-                <p>create an account for new user? <Link to={'/signup'} className="underline text-extrabold">signup</Link></p>
+                <p>create an account for new user? <Link to={'/signup'} className="underline text-extrabold text-red-400">signup</Link></p>
             </div>
         </div>
     </div>

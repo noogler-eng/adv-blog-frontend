@@ -27,8 +27,9 @@ export default function Blog(){
     }, [])
 
     return <div className="flex h-full w-full items-center flex-col">
-       <div className="mt-4 place-self-end mr-4">
-        <Link to={"/"} className="bg-black text-white text-extrabold px-3 py-1 rounded-lg hover:bg-white hover:text-black hover:outline">Back</Link>
+       <div className="mt-4 place-self-end mr-4 flex gap-3">
+        <Link to={"/"} className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline">Back</Link>
+        <Link to={"/myblogs"} className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline">Myblogs</Link>
        </div>
        <div className="flex flex-col items-center w-5/6 mt-8 p-16">
             <div className="text-center underline text-3xl text-extrabold mb-4">
