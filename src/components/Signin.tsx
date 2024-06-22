@@ -12,7 +12,7 @@ export default function Signin(){
     async function handelForm(e: any){
         e.preventDefault();
 
-        axios.post("http://localhost:8787/user/signin", {
+        axios.post("https://my-blog.sharadpoddar1001.workers.dev/user/signin", {
             email: email,
             password: password
         }).then((res)=>{

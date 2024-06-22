@@ -12,7 +12,7 @@ export default function Landing(){
     const navigate = useNavigate();
     
     useEffect(()=>{
-        axios.get("http://localhost:8787/blog/v1/user", {
+        axios.get("https://my-blog.sharadpoddar1001.workers.dev/blog/v1/user", {
             headers: {
                 Authorization: localStorage.getItem("token")
             }
@@ -22,7 +22,7 @@ export default function Landing(){
             console.log(error);
         })
 
-        axios.get("http://localhost:8787/blog/getAll").then((res)=>{
+        axios.get("https://my-blog.sharadpoddar1001.workers.dev/blog/getAll").then((res)=>{
             setBlogs(res.data.msg);
         }).catch((error)=>{
             console.log(error);

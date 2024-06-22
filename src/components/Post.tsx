@@ -17,7 +17,7 @@ export default function Post(){
 
         console.log(title, content)
         
-        axios.post("http://localhost:8787/blog/v1/blog", {
+        axios.post("https://my-blog.sharadpoddar1001.workers.dev/blog/v1/blog", {
             title: title,
             content: content
         }, {
