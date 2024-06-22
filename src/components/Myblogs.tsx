@@ -8,7 +8,7 @@ export default function Myblogs(){
     const navigate = useNavigate();
     
     useEffect(()=>{
-        axios.get("https://my-blog.sharadpoddar1001.workers.dev/blog/v1/my-blogs", {
+        axios.get(`${import.meta.env.VITE_URL}/blog/v1/my-blogs`, {
             headers: {
                 Authorization: localStorage.getItem("token")
             }
@@ -23,7 +23,7 @@ export default function Myblogs(){
 
     async function handelDelete(id: number){
         try{
-            axios.delete(`https://my-blog.sharadpoddar1001.workers.dev/blog/v1/blog/${id}`, {
+            axios.delete(`${import.meta.env.VITE_URL}/blog/v1/blog/${id}`, {
             headers: {
                 Authorization: localStorage.getItem("token")
             }

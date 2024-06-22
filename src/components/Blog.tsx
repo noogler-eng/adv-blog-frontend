@@ -15,7 +15,7 @@ export default function Blog(){
     const params = useParams();
     
     useEffect(()=>{
-        axios.get(`https://my-blog.sharadpoddar1001.workers.dev/blog/v1/blog/${params.id}`, {
+        axios.get(`${import.meta.env.VITE_URL}/blog/v1/blog/${params.id}`, {
             headers: {
                 Authorization: localStorage.getItem("token")
             }

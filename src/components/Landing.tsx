@@ -12,7 +12,7 @@ export default function Landing(){
     const navigate = useNavigate();
     
     useEffect(()=>{
-        axios.get("https://my-blog.sharadpoddar1001.workers.dev/blog/v1/user", {
+        axios.get(`${import.meta.env.VITE_URL}/blog/v1/user`, {
             headers: {
                 Authorization: localStorage.getItem("token")
             }
@@ -22,7 +22,7 @@ export default function Landing(){
             console.log(error);
         })
 
-        axios.get("https://my-blog.sharadpoddar1001.workers.dev/blog/getAll").then((res)=>{
+        axios.get(`${import.meta.env.VITE_URL}/blog/getAll`).then((res)=>{
             setBlogs(res.data.msg);
         }).catch((error)=>{
             console.log(error);
@@ -45,7 +45,7 @@ export default function Landing(){
             MEDIUM<span className="text-gray-400">.com</span>
         </div>
         <div className="flex gap-3 items-center">
-            { user && <Avtar/>}
+            { user !== null ? <Avtar/> : null}
             {user !== null ? 
                 <button onClick={handelLogout} className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline">Logout</button> 
                 : <button onClick={handelSignin} className="bg-black text-white text-extrabold px-3 border-2 border-black rounded-lg hover:bg-white hover:text-black hover:outline">Signin</button>

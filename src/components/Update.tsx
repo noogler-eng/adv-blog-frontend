@@ -12,7 +12,7 @@ export default function Update(){
     const params = useParams();
 
     useEffect(()=>{
-        axios.get(`https://my-blog.sharadpoddar1001.workers.dev/blog/v1/blog/${params.id}`,{
+        axios.get(`${import.meta.env.VITE_URL}/blog/v1/blog/${params.id}`,{
             headers: {
                 Authorization: localStorage.getItem("token")
             },
@@ -33,7 +33,7 @@ export default function Update(){
 
         console.log(title, content)
         
-        axios.put(`http://localhost:8787/blog/v1/blog/${params.id}`, {
+        axios.put(`${import.meta.env.VITE_URL}/blog/v1/blog/${params.id}`, {
             title: title,
             content: content
         }, {

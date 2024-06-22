@@ -6,7 +6,7 @@ export default function Users(){
     const [users, setUsers] = useState([]);
     
     useEffect(()=>{
-        axios.get("https://my-blog.sharadpoddar1001.workers.dev/user/all").then((res)=>{
+        axios.get(`${import.meta.env.VITE_URL}/user/all`).then((res)=>{
             setUsers(res.data.msg);
         }).catch((error)=>{
             console.log(error)

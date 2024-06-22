@@ -13,7 +13,7 @@ export default function Signup(){
     async function handelForm(e: any){
         e.preventDefault();
 
-        axios.post("https://my-blog.sharadpoddar1001.workers.dev/user/signup", {
+        axios.post(`${import.meta.env.VITE_URL}/user/signup`, {
             username: username,
             email: email,
             password: password

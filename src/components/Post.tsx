@@ -14,10 +14,8 @@ export default function Post(){
         if(title.length < 5 || content.length< 40){
             return;
         }
-
-        console.log(title, content)
         
-        axios.post("https://my-blog.sharadpoddar1001.workers.dev/blog/v1/blog", {
+        axios.post(`${import.meta.env.VITE_URL}/blog/v1/blog`, {
             title: title,
             content: content
         }, {
